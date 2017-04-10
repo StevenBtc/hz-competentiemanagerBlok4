@@ -37,7 +37,7 @@ class User extends Authenticatable
      */
     public function competencies()
     {
-        return $this->hasMany('App\Competency');
+        return $this->belongsToMany('App\Models\Competency');
     }
 
 //end competencies()
@@ -59,10 +59,7 @@ class User extends Authenticatable
  * @return Eloquent Relation
  */
 
-public function competencyOfUser()
-    {
-        return $this->belongsToMany('App\Models\User', 'user_competencies', 'user_id', 'competency_id');
-    }
+
 
 //end competencyOfUser()
 
