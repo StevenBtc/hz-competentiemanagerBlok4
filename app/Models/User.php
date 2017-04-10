@@ -55,7 +55,7 @@ class User extends Authenticatable
 //end contactOfProject()
 
 /**
- * Will some day return which students have chosen which competency
+ * Returns which students have chosen which competency
  * @return Eloquent Relation
  */
 

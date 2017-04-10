@@ -8,6 +8,7 @@
 
 @section('content')
 
+
 <h1>Dag {{ Auth::user()->name }} ,selecteer hier je competenties</h1>
 <h2>
 
