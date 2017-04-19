@@ -38,7 +38,9 @@
 				<tr class="row-link" style="cursor: pointer;"
 					data-href="{{action('CompetencyController@show', ['id' => $competency->id]) }}">
 					<td class="table-text">{{ $competency->id }}</td>
-					<td class="table-text">{{ $competency->name}}</td>
+					<td class="table-text">
+						<a href="{{url("/competency/$competency->id")}}"> {{ $competency->name}}</a>
+					</td>
 					<td class="table-text">
 						<div>
 							<a class="btn btn-primary" href="{!! url('competency/' . $competency->id .'/edit' ) !!}">

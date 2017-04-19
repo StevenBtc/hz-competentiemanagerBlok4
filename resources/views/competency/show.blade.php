@@ -21,12 +21,18 @@
 	<thead>
 		<th class="col-sm-1">ID</th>
 		<th class="col-sm-4">Naam</th>
+		<th class="col-sm-1">Afkorting</th>
+		<th class="col-sm-1">EC waarde</th>
+		<th class="col-sm-1">CU code</th>
 	</thead>
 	<tbody>
 		<tr class="row-link" style="cursor: pointer;"
 			data-href="{{action('CompetencyController@show', ['id' => $competency->id]) }}">
 			<td class="table-text">{{ $competency->id }}</td>
 			<td class="table-text">{{ $competency->name }}</td>
+			<td class="table-text">{{ $competency->abbreviation }}</td>
+			<td class="table-text">{{ $competency->ec_value }}</td>
+			<td class="table-text">{{ $competency->cu_code }}</td>
 		</tr>
 	</tbody>
 </table>

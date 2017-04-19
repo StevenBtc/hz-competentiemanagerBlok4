@@ -7,14 +7,14 @@
 
 @section('content')
 
-    <h1>Dag {{ Auth::user()->name }}, hier zijn jouw competenties</h1>
-    <h2>
+    <h2>Dag {{ Auth::user()->name }}, hier zijn jouw competenties</h2>
 
-        <table style="width:100%">
-            <tr>
+
+        <table class="table table-striped table-hover">
+            <thead>
                 <th>Jouw Competenties</th>
-                <th></th>
-            </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td>
                     <input type="hidden" name="Language" value= <?= $userComps = DB::table('user_competencies')->pluck('competency_id');?>>
@@ -29,9 +29,8 @@
                     </td>
                 </tr>
             @endforeach
-
+            </tbody>
         </table>
-    </h2>
 
 @endsection
 @section('scripts')
