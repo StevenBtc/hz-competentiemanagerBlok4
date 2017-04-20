@@ -48,6 +48,25 @@ class CompetencyCrudTest extends TestCase
         $this->visit('/competency/1/edit')
             ->see('Memes Stelen 1a');
     }
+    
+       // test testSelectCompetency made by Steven Nassy 12-4-2017
+
+    public function testSelectCompetency()
+    {
+        $this->mockSomeCompetencies();
+
+        $this->visit('/register')
+            ->type('John Doe', 'name')
+            ->type('johndoe@example.com', 'email')
+            ->type('admin123', 'password')
+            ->type('admin123', 'password_confirmation')
+            ->press('Register')
+
+            ->visit('/userCompetencies')
+            ->press('Kiezen')
+            ->seePageIs('/userCompetencies/store');
+    }
+
 
     private function mockSomeCompetencies()
     {
