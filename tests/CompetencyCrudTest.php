@@ -64,9 +64,9 @@ class CompetencyCrudTest extends TestCase
 
             ->visit('/userCompetencies')
             ->press('Kiezen')
-            ->seePageIs('/userCompetencies/store');
-    }
+            ->seePageIs('/userCompetencies');
 
+    }
 
     private function mockSomeCompetencies()
     {
