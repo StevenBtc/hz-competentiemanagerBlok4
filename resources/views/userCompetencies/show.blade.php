@@ -7,6 +7,12 @@
 
 @section('content')
 
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+
     <h2>Dag {{ Auth::user()->name }}, hier zijn jouw competenties</h2>
 
 
@@ -26,6 +32,14 @@
                 <tr>
                     <td>
                         {{$compName = DB::table('competencies')->where('id', $userComp)->value('name')}}
+                    </td>
+                    <td>
+                        <div class="col-sm-1">
+                            {!! Form::open(['route' => ['userCompetencies.destroy', $userComp], 'method'=>'DELETE']) !!}
+                            {!! Form::submit('Verwijderen', array('class'=>'btn btn-danger')) !!}
+                            {!! Form::close() !!}
+                        </div>
+
                     </td>
                 </tr>
             @endforeach

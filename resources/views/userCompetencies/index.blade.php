@@ -8,6 +8,11 @@
 
 @section('content')
 
+	@if ($message = Session::get('success'))
+		<div class="alert alert-success">
+			<p>{{ $message }}</p>
+		</div>
+	@endif
 
 <h2>Dag {{ Auth::user()->name }} ,selecteer hier je competenties</h2>
 
@@ -28,7 +33,7 @@
 				</td>
 				<td class="table-text">
 					<div class="col-md-1">
-					{{ Form::open(['route' => ['usercomp.store'], 'method'=>'POST']) }}
+					{{ Form::open(['route' => ['userCompetencies.store'], 'method'=>'POST']) }}
 					{{ Form::hidden('comp_id', $comp->id) }}
 					{!! Form::submit('Kiezen', array('class'=>'btn btn-primary')) !!}
 					{{ Form::close() }}

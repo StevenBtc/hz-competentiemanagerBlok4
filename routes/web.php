@@ -24,9 +24,10 @@ Route::get('/project', function () {
 });
 
 
-Route::get('/userCompetencies/show', 'UserCompetenciesController@show');
-Route::get('/userCompetencies', 'UserCompetenciesController@index');
-Route::post('/userCompetencies/store', 'UserCompetenciesController@store')->name('usercomp.store');
+//Route::get('/userCompetencies/show', 'UserCompetenciesController@show');
+//Route::get('/userCompetencies', 'UserCompetenciesController@index');
+//Route::post('/userCompetencies/store', 'UserCompetenciesController@store')->name('usercomp.store');
+//Route::delete('/userCompetencies/show', 'UserCompetenciesController@destroy')->name('usercomp.destroy');
 
 Route::auth();
 
@@ -36,3 +37,4 @@ Route::get('/demand', 'DemandController@index');
 Route::resource('competency', 'CompetencyController');
 Route::resource('project', 'ProjectController');
 Route::resource('user', 'UserController');
+Route::resource('userCompetencies', 'UserCompetenciesController');

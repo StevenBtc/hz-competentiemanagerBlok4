@@ -68,5 +68,9 @@ class Competency extends Model
         $this->belongsToMany('App\Models\Slot', 'slots_competencies', 'competency_id', 'slot_id');
     }
 
+    public function users()
+    {
+        $this->belongsToMany('App\Models\User', 'user_competencies');
+    }
 //end slots()
 }//end class
