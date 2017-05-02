@@ -37,7 +37,7 @@ class User extends Authenticatable
      */
     public function competencies()
     {
-        return $this->belongsToMany('App\Models\Competency');
+        return $this->belongsToMany('App\Models\Competency', 'user_competencies');
     }
 
 //end competencies()
