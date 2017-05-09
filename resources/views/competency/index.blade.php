@@ -31,6 +31,7 @@
 			<thead>
 				<th class="col-sm-1">Id</th>
 				<th class="col-sm-4">Naam</th>
+				<th class="col-sm-7">Actions</th>
 
 			</thead>
 			<tbody>
@@ -39,6 +40,9 @@
 					data-href="{{action('CompetencyController@show', ['id' => $competency->id]) }}">
 					<td class="table-text">{{ $competency->id }}</td>
 					<td class="table-text">{{ $competency->name}}</td>
+					<td class="table-text">
+						<a href="{{url('competency')}}/{{$competency->id}}" class="btn btn-default">More Info</a>
+					</td>
 					<td class="table-text">
 						<div>
 							<a class="btn btn-primary" href="{!! url('competency/' . $competency->id .'/edit' ) !!}">

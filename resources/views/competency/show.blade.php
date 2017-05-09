@@ -17,7 +17,39 @@
 @endsection
 
 @section('content')
-<table class="table table-striped table-hover">
+	<div class = "container-fluid">
+		<div class="panel panel-default col-lg-6">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">{{ $competency->name }}</h3>
+		  </div>
+		  <div class="panel-body">
+		    <ul class="list-group">
+			  <li class="list-group-item">
+			    <span class="badge">{{ $competency->name }}</span>
+			    Name:
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{ $competency->abbreviation }}</span>
+			    Abbreviation:
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{ $competency->description }}</span>
+			    Description:
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{ $competency->ec_value }}</span>
+			    EC Value:
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{ $competency->cu_code }}</span>
+			    CU code:
+			  </li>
+			</ul>
+		  </div>
+		  <div class="panel-footer"><a href="{{url('competency')}}" class="btn btn-danger">Back</a></div>
+		</div>
+	</div>
+{{-- <table class="table table-striped table-hover">
 	<thead>
 		<th class="col-sm-1">ID</th>
 		<th class="col-sm-4">Naam</th>
@@ -29,5 +61,5 @@
 			<td class="table-text">{{ $competency->name }}</td>
 		</tr>
 	</tbody>
-</table>
+</table> --}}
 @endsection
