@@ -20,7 +20,7 @@
 <table class="table table-striped table-hover">
 	<thead>
 		<th class="col-sm-1">ID</th>
-		<th class="col-sm-4">Naam</th>
+		<th class="col-sm-3">Naam</th>
 		<th class="col-sm-1">Afkorting</th>
 		<th class="col-sm-1">EC waarde</th>
 		<th class="col-sm-1">CU code</th>
@@ -33,6 +33,10 @@
 			<td class="table-text">{{ $competency->abbreviation }}</td>
 			<td class="table-text">{{ $competency->ec_value }}</td>
 			<td class="table-text">{{ $competency->cu_code }}</td>
+		</tr>
+		<tr>
+			<td><b>Description:</b></td>
+			<td class="table-text">{{ $competency->description }}</td>
 		</tr>
 	</tbody>
 </table>

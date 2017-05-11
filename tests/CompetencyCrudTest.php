@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Competency;
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class CompetencyCrudTest extends TestCase
@@ -48,7 +49,7 @@ class CompetencyCrudTest extends TestCase
         $this->visit('/competency/1/edit')
             ->see('Memes Stelen 1a');
     }
-    
+
        // test testSelectCompetency made by Steven Nassy 12-4-2017
 
     public function testSelectCompetency()
@@ -68,7 +69,53 @@ class CompetencyCrudTest extends TestCase
 
     }
 
-    private function mockSomeCompetencies()
+    public function testDeleteSelectedCompetency()
+    {
+        $this->mockSomeCompetencies();
+
+        $this->visit('/register')
+            ->type('John Doe', 'name')
+            ->type('johndoe@example.com', 'email')
+            ->type('admin123', 'password')
+            ->type('admin123', 'password_confirmation')
+            ->press('Register')
+
+            ->visit('/userCompetencies')
+            ->press('Kiezen')
+            ->seePageIs('/userCompetencies')
+
+            ->visit('/userCompetencies/show')
+            ->press('Verwijderen')
+            ->seePageIs('/userCompetencies/show');
+
+    }
+
+    /**
+    * @group test
+    */
+    public  function testShowInfoCompetencyOnChooseCompetency()
+    {
+       $this->mockSomeCompetencies();
+
+       $me = User::create([
+           'name'       => 'Tim Banh',
+           'email'      => 'TB@hz.nl',
+           'password'   => bcrypt('admin123'),
+       ]);
+
+       $this->actingAs($me);
+
+       $this->visit('/userCompetencies')
+           ->click('Memes Posten 1a')
+           ->seePageIs('/competency/1')
+
+           ->see('Memes Posten 1a')
+           ->see('MEME')
+           ->see('CU123456');
+
+    }
+
+    public function mockSomeCompetencies()
     {
         Competency::create(
             [
@@ -79,7 +126,6 @@ class CompetencyCrudTest extends TestCase
                 'cu_code'      => 'CU123456',
             ]
         );
-
         Competency::create(
             [
                 'name'         => 'Memes Posten 1b',
@@ -89,7 +135,6 @@ class CompetencyCrudTest extends TestCase
                 'cu_code'      => 'CU654321',
             ]
         );
-
         Competency::create(
             [
                 'name'         => 'Wijn Drinken 2',

@@ -55,7 +55,6 @@
 							{!! Form::submit('Verwijderen', array('class'=>'btn btn-danger')) !!}
 							{!! Form::close() !!}
 						</div>
-						</div>
 					</td>
 				</tr>
 				@endforeach
