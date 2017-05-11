@@ -28,7 +28,7 @@
 				<tr class="row-link" style="cursor: pointer;"
 									data-href="{{action('ProjectController@show', ['id' => $project->id]) }}">
 					<td class="table-text">{{ $project->id }}</td>
-					<td class="table-text">{{ $project->name}}</td>
+					<td><a href="{{url("/project/$project->id")}}"> {{ $project->name}}</a></td>
 
 <!--This button will redirect the user to the /project/edit page-->
 					<td class="table-text">
