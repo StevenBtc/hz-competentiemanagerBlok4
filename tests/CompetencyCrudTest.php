@@ -2,6 +2,7 @@
 
 use App\Models\Competency;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use App\Models\User;
 
 class CompetencyCrudTest extends TestCase
 {
@@ -66,6 +67,26 @@ class CompetencyCrudTest extends TestCase
             ->press('Kiezen')
             ->seePageIs('/userCompetencies');
 
+    }
+
+    public function testShowInfoComptencyOnChooseCompetency()
+    {
+        $this->mockSomeCompetencies();
+
+        $me = User::create([
+            'name'          => 'Tim Banh',
+            'email'         => 'TB@HZ.nl',
+            'password'      => bcrypt('admin123'),
+        ]);
+
+        $this->actingAs($me);
+
+        $this->visit('/userCompetencies')
+            ->click('Memes Posten 1a')
+            ->seePageIs('/competency/1')
+            ->see('Memes Posten 1a')
+            ->see('MEME')
+            ->see('CU123456');
     }
 
     private function mockSomeCompetencies()

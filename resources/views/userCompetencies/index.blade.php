@@ -26,7 +26,7 @@
 		@foreach ($comps as $comp)
 			<tr class="row-link" style="cursor: pointer;">
 				<td>
-					{{ $comp->name }}
+					<a href="{{url("/competency/$comp->id")}}"> {{ $comp->name }}</a>
 				</td>
 				<td>
 					{{ $comp->abbreviation }}
