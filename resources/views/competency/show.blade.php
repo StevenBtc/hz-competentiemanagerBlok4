@@ -49,17 +49,4 @@
 		  <div class="panel-footer"><a href="{{url('competency')}}" class="btn btn-danger">Back</a></div>
 		</div>
 	</div>
-{{-- <table class="table table-striped table-hover">
-	<thead>
-		<th class="col-sm-1">ID</th>
-		<th class="col-sm-4">Naam</th>
-	</thead>
-	<tbody>
-		<tr class="row-link" style="cursor: pointer;"
-			data-href="{{action('CompetencyController@show', ['id' => $competency->id]) }}">
-			<td class="table-text">{{ $competency->id }}</td>
-			<td class="table-text">{{ $competency->name }}</td>
-		</tr>
-	</tbody>
-</table> --}}
 @endsection
