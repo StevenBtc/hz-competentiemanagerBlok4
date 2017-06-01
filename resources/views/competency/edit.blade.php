@@ -51,6 +51,7 @@
 	</div>
 
 	<div class="form-group">
+	<!-- Click to save -->
 		<div class="col-md-6">
 			<button type="submit" class="btn btn-primary">
 				Opslaan
